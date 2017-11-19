@@ -35,18 +35,8 @@ doubleAndThenPlusOne(5)
  Write a program that tries to test that your composition function respects identity.
 */
 
-// this does not compile
-
 let plusOneIdentity = identity(f: plusOne)
 
-func identityTest<T, U, V>(compositionFunction: ((T) -> U, (U) -> V) -> (T) -> V)
-    -> Bool {
-        compositionFunction(doubleIdentity, plusOneIdentity)
-    let doubleAndThenPlusOneIdentity = compositionFunction(doubleIdentity, plusOneIdentity)
-    let doubleAndThenPlusOneResult = doubleAndThenPlusOne(5)
-    let doubleAndThenPlusOneIdentityResylt = doubleAndThenPlusOneIdentity(5)
-    return doubleAndThenPlusOneResult == doubleAndThenPlusOneIdentityResylt
-}
+let doubleAndThenPlusOneIdentity = composition(f: doubleIdentity, g: plusOneIdentity)
 
-let doesCompositionRespectIdentity = identityTest(composition: composition)
-
+doubleAndThenPlusOne(5) == doubleAndThenPlusOneIdentity(5)
