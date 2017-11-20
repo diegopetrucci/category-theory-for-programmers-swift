@@ -47,4 +47,18 @@ memoizedFibonacci2(20)
 memoizedFibonacci2(20)
 memoizedFibonacci2(20)
 
+/*
+ Try to memoize a function from your standard library that you normally use to produce random numbers. Does it work?
+ Most random number generators can be initialized with a seed. Implement a function that takes a seed, calls the random number generator with that seed, and returns the result. Memoize that function. Does it work?
+ */
+
+import Foundation
+
+let memoizedRandom = memoize(f: arc4random_uniform)
+
+memoizedRandom(42)
+memoizedRandom(42)
+memoizedRandom(42)
+
+
 //: [Next](@next)
